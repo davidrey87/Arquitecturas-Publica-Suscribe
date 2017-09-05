@@ -1,4 +1,4 @@
-# Imagenes
+# Imágenes
 
 Esta carpeta contiene el diagrama de contenedores del SMAM. Así mismo se incluye el archivo fuente o editable para aplicar las 
 futuras modificaciones. El archivo fuente fue diseñado utilizando el software libre Inkscape.
