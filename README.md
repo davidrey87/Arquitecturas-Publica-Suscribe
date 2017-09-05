@@ -4,7 +4,7 @@
 
 ### Prerequisitos
 
-Antes de ejecutar el código de la tarea 1 se requiere instales las librerias de Python indicadas en el archivo [Prerequisitos.txt]  
+Antes de ejecutar el código de la tarea 1 se requiere instales las librerias de Python indicadas en el archivo [requirements.txt]  
 
 ### Ejecutar simulador de la tarea 1
 
