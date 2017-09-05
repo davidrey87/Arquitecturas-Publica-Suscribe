@@ -54,9 +54,10 @@ class Simulador:
     id_inicial = 39722608
 
     def set_up_sensors(self):
-        print('Tarea 1: arquitecturas Publica - Suscribe')
+        print('cargando')
         self.draw_progress_bar(10)
         print(figlet_format('Bienvenido'))
+        print('Tarea 1: arquitecturas Publica - Suscribe')
         print('Cargando simulador')
         self.draw_progress_bar(20)
         print('+---------------------------------------------+')
