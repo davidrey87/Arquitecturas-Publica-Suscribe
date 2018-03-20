@@ -196,27 +196,15 @@ class XiaomiMyBand:
         return time.strftime("%d:%m:%Y:%H:%M:%S")
 
     def simulate_body_position(self):
-        return (self.simulate_x_position(), self.simulate_y_position(), self.simulate_z_position())
+        return (str(self.simulate_x_position())+'#'+str(self.simulate_y_position())+'#'+str(self.simulate_z_position()))
 
     def simulate_x_position(self):
-        # agrega tú código aquí
-        # la posición x óptima de un adulto mayor 
-        # debe ser mínimo de 0 y máximo de 10
-        #pass
         return random.uniform(-2, 12)
 
     def simulate_y_position(self):
-        # agrega tú código aquí
-        # la posición y óptima de un adulto mayor 
-        # debe ser mínimo de -10 y máximo de 2
-        #pass
         return random.uniform(-12, 4)
 
     def simulate_z_position(self):
-        # agrega tú código aquí
-        # la posición z óptima de un adulto mayor 
-        # debe ser mínimo de -10 y máximo de 1
-        #pass
         return random.uniform(-12, 3)
 
     def simulate_body_temperature(self):
