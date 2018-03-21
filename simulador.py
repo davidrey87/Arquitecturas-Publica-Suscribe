@@ -46,12 +46,16 @@ import progressbar
 from time import sleep
 sys.path.append('publicadores')
 from xiaomi_my_band import XiaomiMyBand
+from temporizador import MyTemporizador
 from pyfiglet import figlet_format
+import random
 
 
 class Simulador:
     sensores = []
     id_inicial = 39722608
+    grupos = []
+    medicamentos =([["Paracetamol","13:27"],["ibuprofeno","13:28"],["insulina","13:29"]])
 
     def set_up_sensors(self):
         print('cargando')
@@ -69,19 +73,27 @@ class Simulador:
         print('+---------------------------------------------+')
         print('|            ASIGNACIÓN DE SENSORES           |')
         print('+---------------------------------------------+')
+
         for x in xrange(0, int(adultos_mayores)):
             s = XiaomiMyBand(self.id_inicial)
             self.sensores.append(s)
             print('| wearable Xiaomi My Band asignado, id: ' + str(self.id_inicial))
             print('+---------------------------------------------+')
             self.id_inicial += 1
+
+        for x in xrange(0,len(self.sensores)):
+            item=[self.sensores[x].id, random.randint(0, 2)]
+            self.grupos.append(item)
+
         print('+---------------------------------------------+')
         print('|        LISTO PARA INICIAR SIMULACIÓN            |')
         print('+---------------------------------------------+')
         print('')
         print('*Nota: Se enviarán 1000 mensajes como parte de la simulación')
         raw_input('presiona enter para iniciar: ')
-        self.start_sensors()
+        #self.start_sensors()
+        t = MyTemporizador(self.medicamentos, self.grupos)
+        t.publish()
 
     def start_sensors(self):
         for x in xrange(0, 1000):
