@@ -91,7 +91,7 @@ class ProcesadorPosicion:
     def callback(self, ch, method, properties, body):
         json_message = self.string_to_json(body)
         positions = json_message['body_position'].split('#')
-        if (float(positions[0]) < 0) or (float(positions[0]) > 0) or (float(positions[1]) < -10) or (float(positions[1]) > 2) or (float(positions[2]) < -10) or (float(positions[2]) > 1) : 
+        if (float(positions[0]) < 0) or (float(positions[0]) > 10) or (float(positions[1]) < -10) or (float(positions[1]) > 2) or (float(positions[2]) < -10) or (float(positions[2]) > 1) : 
             monitor = Monitor()
             monitor.print_notification('presenta problemas con la posicion corporal',json_message['datetime'], json_message['id'])
 
