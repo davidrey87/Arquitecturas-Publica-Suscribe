@@ -61,7 +61,7 @@ class Simulador:
     sensores = []
     id_inicial = 39722608
     grupos = []
-    medicamentos =([["Paracetamol","01:19","1"],["Ibuprofeno","01:09",".5"],["Insulina","01:19","2"],["Furosemida","01:20","1.5"],["Piroxicam","01:20",".5"],["Tolbutamida","01:21","2"]])
+    medicamentos =([["Paracetamol","9:00","1"],["Ibuprofeno","9:30",".5"],["Insulina","12:00","2"],["Furosemida","14:30","1.5"],["Piroxicam","16:00",".5"],["Tolbutamida","20:00","2"]])
 
     def set_up_sensors_temporizador(self):
         print('cargando')

@@ -85,7 +85,7 @@ class ProcesadorAlarma:
     def callback(self, ch, method, properties, body):
         json_message = self.string_to_json(body)
         monitor = Monitor()
-        monitor.print_notification('Alarma de medicamento, tomar '+json_message['medicamento']+', dosis '+json_message['dosis'],json_message['datetime'],json_message['adultos'])
+        monitor.print_notification(' debe tomar '+json_message['medicamento']+', dosis '+json_message['dosis']+ ' a la hora '+json_message['tiempo'],json_message['datetime'],json_message['adultos'])
 
         time.sleep(1)
         ch.basic_ack(delivery_tag=method.delivery_tag)
