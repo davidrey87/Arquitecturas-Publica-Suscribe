@@ -1,3 +1,4 @@
 pika==0.10.0
 pyfiglet==0.7.5
 progressbar2==3.34.2
+schedule==0.5.0
