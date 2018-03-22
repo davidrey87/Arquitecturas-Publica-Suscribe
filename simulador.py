@@ -49,13 +49,13 @@ from xiaomi_my_band import XiaomiMyBand
 from temporizador import MyTemporizador
 from pyfiglet import figlet_format
 import random
-
+import threading
 
 class Simulador:
     sensores = []
     id_inicial = 39722608
     grupos = []
-    medicamentos =([["Paracetamol","13:27"],["ibuprofeno","13:28"],["insulina","13:29"]])
+    medicamentos =([["Paracetamol","23:29"],["ibuprofeno","23:30"],["insulina","23:31"]])
 
     def set_up_sensors(self):
         print('cargando')
@@ -91,14 +91,20 @@ class Simulador:
         print('')
         print('*Nota: Se enviarán 1000 mensajes como parte de la simulación')
         raw_input('presiona enter para iniciar: ')
-        #self.start_sensors()
-        t = MyTemporizador(self.medicamentos, self.grupos)
-        t.publish()
+
+        hilo_temporizador = threading.Thread(target=self.start_temporizador)
+        hilo_sensores = threading.Thread(target=self.start_sensors)
+        hilo_temporizador.start()
+        hilo_sensores.start()
 
     def start_sensors(self):
         for x in xrange(0, 1000):
             for s in self.sensores:
                 s.publish()
+        
+    def start_temporizador(self):
+        t = MyTemporizador(self.medicamentos, self.grupos)
+        t.publish()
 
     def draw_progress_bar(self, value):
         bar = progressbar.ProgressBar(maxval=value, widgets=[progressbar.Bar('=', '[', ']'), ' ', progressbar.Percentage()])
@@ -111,3 +117,4 @@ class Simulador:
 if __name__ == '__main__':
     simulador = Simulador()
     simulador.set_up_sensors()
+
